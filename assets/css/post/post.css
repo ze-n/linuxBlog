@@ -37,11 +37,12 @@ h2 strong {
   margin-bottom: 3rem;
 }
 
-.post p {
-  margin-bottom: 1.5rem;
+.post__text-container p {
+  margin: 1.5rem 0rem;
+  font-size: 1.1rem;
 }
 
-.post p:last-child {
+.post__text-container p:last-child {
   margin-bottom: 0;
 }
 
