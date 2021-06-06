@@ -1,0 +1,213 @@
+ @mixin flexJC($jc) {
+     display: flex;
+     align-items: center;
+     justify-content: $jc;
+ }
+ 
+ .header {
+     background: var(--green-color--400);
+     border: none;
+     &__nav-list {
+         background: var(--green-color--800);
+     }
+ }
+ 
+ //////////////////////
+ //////global//////////
+ /////////////////////
+ section {
+     width: 100vw;
+ }
+ 
+ h1 {
+     font-size: 2rem;
+     font-weight: 800;
+     line-height: 2rem;
+ }
+ 
+ strong {
+     font-weight: 800;
+ }
+ 
+ h2 {
+     strong {
+         font-size: 120%;
+     }
+ }
+ 
+ .post {
+     font-size: 20px;
+     line-height: 24px;
+     h2 {
+         font-size: 1.5rem;
+         font-weight: 800;
+         line-height: 1.7rem;
+         margin-bottom: 3rem;
+     }
+     p {
+         margin-bottom: 1.5rem;
+         &:last-child {
+             margin-bottom: 0;
+         }
+     }
+ }
+ 
+ .date {
+     font-size: 1rem;
+     font-weight: 600;
+     line-height: 1rem;
+     display: inline-block;
+     margin-bottom: .5rem;
+ }
+ 
+ /////////////
+ /////utility//
+ //////
+ .c-black {
+     color: var(--black-color);
+ }
+ 
+ .c-white {
+     color: var(--green-color--100);
+ }
+ 
+ .bg-black {
+     color: var(--black-color);
+ }
+ 
+ .bg-green--600 {
+     background: var(--green-color--600);
+ }
+ 
+ .bg-white {
+     background: var(--green-color--100);
+ }
+ 
+ .flex-container-Sbetween {
+     min-height: 150px;
+     @include flexJC(space-between);
+     flex-direction: column;
+     padding: 3rem 1rem;
+     width: 100%;
+ }
+ 
+ .flex-child {
+     width: 100%;
+ }
+ 
+ //////these classes will have 35 and 65 width in desktop query
+ .width-35 {
+     width: 100%;
+ }
+ 
+ .width-65 {
+     width: 100%;
+ }
+ 
+ ////////////////
+ .post-card {
+     margin-top: 4.9rem;
+     background: var(--green-color--400);
+     min-height: calc(500px - 5rem);
+     width: 100vw;
+     @include flexJC(center);
+     color: var(--black-color);
+     &__card {
+         width: 300px;
+         padding: 3rem 2rem;
+         min-height: 150px;
+         background-color: var(--green-color--100);
+         box-shadow: .7rem .7rem 0rem 0rem var(--green-color--600);
+         position: relative;
+         &::before,
+         &::after {
+             content: '';
+             width: 4rem;
+             height: 3rem;
+             position: absolute;
+             top: -3rem;
+         }
+         &::before {
+             left: 0%;
+             background: var(--green-color--600);
+         }
+         &::after {
+             left: 4rem;
+             background: var(--green-color--100);
+         }
+     }
+     &__card-dots {
+         display: none;
+     }
+ }
+ 
+ ///////
+ //////////////////
+ ////////////media queries///////
+ /////////////////
+ @media screen and (min-width: 600px) {
+     ///////////
+     //////global////
+     //////////
+     h1 {
+         font-size: 3rem;
+         font-weight: 800;
+         line-height: 3rem;
+     }
+     h2.flex-child {
+         margin: 0;
+     }
+     .flex-container-Sbetween {
+         flex-direction: row;
+     }
+     /////////
+     ///////////////
+     ////utility//
+     ////////
+     .width-35 {
+         width: 35%;
+     }
+     .width-65 {
+         width: 65%;
+     }
+     .flex-child.width-35 {
+         margin-right: 3rem;
+     }
+     ////////////////
+     .post-card {
+         &__card {
+             width: 500px;
+             box-shadow: 1rem 1rem 0rem 0rem var(--green-color--600);
+         }
+     }
+ }
+ 
+ @media screen and (min-width:800px) {
+     //////////
+     .post-card {
+         &__card {
+             width: 550px;
+             padding: 3rem;
+             padding-bottom: 5rem;
+             padding-right: 5rem;
+             &::before,
+             &::after {
+                 width: 4rem;
+                 height: 4rem;
+                 left: -4rem;
+             }
+             &::before {
+                 top: 0rem;
+             }
+             &::after {
+                 top: 4rem;
+             }
+         }
+         &__card-dots {
+             display: block;
+             position: absolute;
+             bottom: 1rem;
+             right: 1rem;
+         }
+     }
+ }

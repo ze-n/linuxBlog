@@ -1,0 +1,147 @@
+@mixin flexJC($jc) {
+    display: flex;
+    align-items: center;
+    justify-content: $jc;
+}
+
+/////////////////
+///global////
+////////////////
+//centering contant for dynamic sizes of mobile devices
+section div.container {
+    @include flexJC(center);
+    flex-direction: column;
+}
+
+.recent-posts {
+    background: var(--green-color--800);
+    color: var(--black-color);
+    letter-spacing: 4%;
+    width: 100vw;
+    &__section-heading {
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: inline-block;
+        border-top: 3px solid var(--green-color--100);
+        margin-bottom: 3rem;
+        color: var(--green-color--100);
+    }
+    &__card {
+        background: var(--green-color--100);
+        margin-bottom: 2.5rem;
+        min-width: 328px;
+        max-width: 400px;
+    }
+    &__card-left,
+    &__card-right {
+        min-height: 150px;
+        max-height: 2800px;
+        padding: 3rem 1rem;
+        @include flexJC(center);
+        position: relative;
+    }
+    &__card-right {
+        background: var(--green-color--600);
+        line-height: 20px;
+    }
+    &__date {
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+    &__title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 900;
+    }
+    //////////////////////////////////////////////////////////////////
+    //////////////dec elements for left side or upper side ///////////
+    //////////////////////////////////////////////////////////////////
+    &__text-container {
+        position: relative;
+        z-index: 2;
+    }
+    &__card-left-dec {
+        height: 25%;
+        position: absolute;
+        left: 0;
+        background: var(--green-color--600);
+        &:nth-child(2n) {
+            background: var(--green-color--400);
+        }
+    }
+    &__card-left-dec1 {
+        top: 0;
+        width: 80%;
+    }
+    &__card-left-dec2 {
+        top: 25%;
+        width: 70%;
+    }
+    &__card-left-dec3 {
+        top: 50%;
+        width: 60%;
+    }
+    &__card-left-dec4 {
+        top: 75%;
+        width: 50%;
+    }
+    &__card-left-dec5 {
+        position: absolute;
+        z-index: 1;
+        width: 15%;
+        height: 15%;
+        right: 15%;
+        top: 0;
+        background: var(--green-color--800);
+    }
+    &__card-right-dec1 {
+        width: 50%;
+        height: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: var(--green-color--100);
+    }
+    &__card-right-dec2 {
+        position: absolute;
+        background: var(--green-color--800);
+        width: 15%;
+        height: 15%;
+        right: 15%;
+        bottom: 0;
+        z-index: 1;
+    }
+}
+
+@media screen and (min-width:500px) {
+    .recent-posts {
+        &__title {
+            font-size: 2rem;
+            line-height: 2rem;
+        }
+        &__card-left,
+        &__card-right {
+            padding: 3rem;
+        }
+    }
+}
+
+@media screen and (min-width:800px) {
+    .recent-posts {
+        &__card {
+            display: flex;
+            width: calc(100vw - 4rem);
+            max-width: calc(1100px - 4rem);
+        }
+        &__card-left,
+        &__card-right {
+            width: 50%;
+            padding: 3rem;
+        }
+        &__card-right-dec1 {
+            top: 0;
+            left: 50%;
+        }
+    }
+}
