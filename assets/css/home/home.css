@@ -128,8 +128,8 @@
   }
   .intro__right-text-container {
     outline: 2px solid var(--green-color--100);
-    width: 80%;
-    height: 50%;
+    width: 105%;
+    height: 70%;
     outline-offset: 1rem;
     display: -webkit-box;
     display: -ms-flexbox;
